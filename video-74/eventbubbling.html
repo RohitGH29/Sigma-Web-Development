@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #fffcfc;
+    }
+    .container {
+        width: 50%;
+        height: 50vh;
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+    }
+    .childContainer {
+        width: 50%;
+        height: 50%;
+        display: flex;
+        flex: 1;
+        margin: 10px;
+        justify-content: center;
+        align-items: center;
+    }
+    .child {
+        height: 50%;
+        display: flex;
+        flex: 1;
+        margin: 10px;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+<body>
+    <div class="container">
+        <dispanv class="childContainer">
+            <div class="child">
+                I am a child
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelector(".child").addEventListener
+            ('click', () => {
+                alert("I am a child");
+            });
+        document.querySelector(".childContainer").addEventListener
+            ('click', () => {
+                e.stopPropagation(); // Stop the event bubbling to the parent element of the childContainer class element 
+                alert("I am a child container");
+            });
+        document.querySelector(".container").addEventListener
+            ('click', () => {
+                e.stopPropagation();
+                alert("I am a container");
+            });
+
+        function getRandomColor() {
+            let var1 = Math.ceil(0 + Math.random() * 255);
+            let var2 = Math.ceil(0 + Math.random() * 255);
+            let var3 = Math.ceil(0 + Math.random() * 255);
+            return `rgb(${var1}, ${var2}, ${var3})`;
+        }
+
+        setInterval(() => {
+            document.querySelector(".child").style.backgroundColor = getRandomColor();
+        }, 1000);
+
+        setInterval(() => {
+            document.querySelector(".childContainer").style.backgroundColor = getRandomColor();
+        }, 1000);
+
+        setInterval(() => {
+            document.querySelector(".container").style.backgroundColor = getRandomColor();
+        }, 1000);
+
+        // setTimeout(() => {
+        //     document.querySelector(".child").style.backgroundColor = getRandomColor();
+        // }, 1000);
+        
+
+    </script>
+</body>
+
+</html>
