@@ -1,0 +1,58 @@
+<!-- Create a hacking simulator which has green background and it shows these messages with random delay of 1 to 7 seconds 
+    
+    Initializing Hacking...
+    Reading your Files...
+    Password files Detected...
+    Sending all passwords and personal files to server...
+    Cleaning up...
+
+    The three dots must blink so that it looks like a real terminal
+    -->
+    <style>
+        body {
+            background-color: black;
+            color: green;
+            font-family: monospace;
+            white-space: pre;
+        }
+        .blinking-dots::after {
+            content: '...';
+            animation: blink 1s steps(1, end) infinite;
+        }
+        @keyframes blink {
+            0%, 100% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+    </style>
+    <script>
+        const messages = [
+            "Initializing Hacking",
+            "Reading your Files",
+            "Password files Detected",
+            "Sending all passwords and personal files to server",
+            "Cleaning up",
+            "Your computer is now hacked"
+        ];
+
+        let currentMessageIndex = 0;
+
+        function showMessage() {
+            if (currentMessageIndex < messages.length) {
+                const message = messages[currentMessageIndex];
+                const messageElement = document.createElement('div');
+                messageElement.textContent = message;
+                messageElement.classList.add('blinking-dots');
+                document.body.appendChild(messageElement);
+
+                currentMessageIndex++;
+                setTimeout(showMessage, Math.random() * 6000 + 1000);
+            }
+        }
+
+        window.onload = showMessage;
+    </script>
+
