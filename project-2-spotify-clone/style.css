@@ -1,0 +1,117 @@
+/* In this I am going to create Spotify clone */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+
+.left {
+    width: 25vw;
+    padding: 5px;
+}
+
+.right {
+    width: 75vw;
+    margin: 10px 0;
+}
+
+
+
+.home ul li {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    width: 20px;
+    padding-top: 14px;
+    font-weight: bold;
+}
+
+.heading{
+    display: flex;
+    gap: 10px;
+    width: 20px;
+    padding-top: 14px;
+    font-weight: bold;
+    align-items: center;
+}
+
+.library{
+    min-height: 80vh;
+    position: relative;
+}
+
+.footer{
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+    font-size: 12px;
+    color: white;
+    gap: 10px;
+    position: absolute;
+    padding: 10px;
+    bottom: 0;
+    margin-bottom: 5px;
+}
+
+.footer a{
+    color: rgb(144, 140, 140);
+    /* text-decoration: none; */
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    background-color: #3c3a3a;
+    color: white;
+} 
+
+
+.spotifyPlaylists{
+    /* gap: 10px; */
+    padding: 10px;
+    /* border-bottom: 1px solid rgb(208, 10, 10); */
+}
+
+.cardContainer{
+    margin: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.card{
+    width: 200px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #4b4444;
+    position: relative;
+}
+
+.card > *{
+    padding-top: 10px;
+}
+
+.card img{
+    width:  100%;
+    object-fit: contain;
+}
+
+.play {
+    background-color: #1db954;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 30px;
+    position: absolute;
+    bottom: 95px;
+    right: 20px;
+    opacity: 0;
+    transition: all 1s ease-out;
+}
